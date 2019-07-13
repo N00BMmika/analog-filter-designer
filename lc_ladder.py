@@ -28,10 +28,10 @@ class LCladder(Filter):
             self.a = self.a_help_var()
             self.a_ = self.a_prim_help_var()
 
-            print "gamma ", self.gamma
-            print "epsilon ", self.E
-            print "a", self.a
-            print "a_ ", self.a_
+            print("gamma ", self.gamma)
+            print("epsilon ", self.E)
+            print("a", self.a)
+            print("a_ ", self.a_)
            
         #Frequency to pulsation
         self.wn = self.wn * np.pi * 2    
@@ -200,7 +200,7 @@ class LCladder(Filter):
         if self.btype in ("bandpass", "bandstop"):
             w0 = np.sqrt(self.fp[0]*self.fp[1]) #middle frequency
             beta = (omega0)/(self.fp[1]-self.fp[0]) #beta factor
-            print omega0, beta
+            print(omega0, beta)
         else:
             pass
 
@@ -215,6 +215,6 @@ class LCladder(Filter):
 
 if __name__ == '__main__':
     ladder = LCladder(1000.0, 1000.0, 500.0, 1000.0, 3.0, 20, 'butter', 'lowpass')
-    print ladder.ord
-    print ladder.load_matched()
+    print(ladder.ord)
+    print(ladder.load_matched())
     #ladder.prototype()

@@ -46,7 +46,7 @@ class Scheme(object):
         self.width = self.input_size[0]
 
         #Input load label
-        text = str(self.R1/1000.0) + u" k\u03A9"
+        text = str(self.R1/1000.0) + " k\u03A9"
         self.draw.text((75, 45), text, font=self.font, fill="black")
         self.draw.text((90, 17), "R1", font=self.font, fill="black")
 
@@ -68,7 +68,7 @@ class Scheme(object):
         self.img.paste(self.out_copy, (self.width, 0))
 
         #Output load label
-        text = str(self.R2/1000.0) + u" k\u03A9" 
+        text = str(self.R2/1000.0) + " k\u03A9" 
         self.draw.text((self.width+50, 75), "R2", font=self.font, fill="black")
         self.draw.text((self.width+75, 75), text, font=self.font, fill="black")
 
@@ -80,15 +80,15 @@ class Scheme(object):
         if element == "cap":
             element = self.cap_copy
             element_label = "C" + str(m)
-            print self.lc_ladder_elements
+            print(self.lc_ladder_elements)
             element_label = element_label + "=" + str(self.lc_ladder_elements[element_label])
-            print element_label
+            print(element_label)
             pos = (self.width + 5, 150)
         elif element == "coil":
             element = self.coil_copy
             element_label = "L" + str(m)
             element_label = element_label + "=" + str(self.lc_ladder_elements[element_label])
-            print element_label
+            print(element_label)
             pos = (self.width, 35)
         else:
             raise Exception("Element not recognized!")
@@ -103,7 +103,7 @@ if __name__ == "__main__":
     ladder = LCladder(1500.0, 222.0, 500, 700, 1.0, 20, 'butter', 'lowpass')
     lc_ladder_elements = ladder.load_not_matched()
 
-    print lc_ladder_elements
+    print(lc_ladder_elements)
 
     scheme = Scheme(ladder.R1, ladder.R2, 7)
     scheme.design(lc_ladder_elements)
